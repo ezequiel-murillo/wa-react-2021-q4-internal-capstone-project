@@ -2,38 +2,39 @@ import {ReactComponent as MoblyLogo} from './logo.svg';
 import {BsFillCartFill} from 'react-icons/bs'
 
 const headerStyle = {
-  paddingTop: "10px"
+  paddingTop: "10px",
+  display: "flex"
 }
-
 const textInputStyle = {
   border: "1px solid #ccc",
   borderRadius: "4px",
   height: "35px",
   paddingLeft: "10px",
-  float: "left"
+  width: "10%"
 }
 const cartStyle = {
   fontSize: "27px",
-  float: "right",
-  margin: "3px 0 0 10px"
+  margin: "3px 0 0 10px",
+  width: "5%"
 }
-const headerRight = {
-  float: "right",
-  position: "absolute",
-  right: "8%",
-  top: "10px"
+const gapStyle = {
+  width: "60%"
 }
+const logoStyle = {
+  width: "20%",
+  height: "40px"
+}
+
 
 function Header () {
     return (
       <div className="Header" style={headerStyle}>
 
-        <MoblyLogo className="header-logo" />
-        <div style={headerRight}>
-          <input type="text" placeholder="Seach..." style={textInputStyle}/>
-          <BsFillCartFill style={cartStyle}/>
-        </div>
- 
+        <MoblyLogo style={logoStyle} />
+        <div style={gapStyle}/>
+        <input type="text" placeholder="Seach..." style={textInputStyle}/>
+        <BsFillCartFill style={cartStyle}/>
+
       </div>
     );
   }
