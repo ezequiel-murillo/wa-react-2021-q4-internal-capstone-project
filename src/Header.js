@@ -30,7 +30,7 @@ function Header () {
     return (
       <div className="Header" style={headerStyle}>
 
-        <MoblyLogo style={logoStyle} />
+        <MoblyLogo style={logoStyle} onClick={() => console.log("Click")} />
         <div style={gapStyle}/>
         <input type="text" placeholder="Seach..." style={textInputStyle}/>
         <BsFillCartFill style={cartStyle}/>

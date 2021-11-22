@@ -9,20 +9,32 @@ import ImageGrid from './components/ImageGrid'
 import Products from './components/Products'
 import ProductList from './components/ProductList'
 
+function Home() {
+  return (
+    <React.Fragment>
+      <ImageSlider banners={banners.results} />
+      <ImageGrid categories={categories.results} />
+      <Products products={products.results} />
+    </React.Fragment>
+  )
+}
 
 function Content () {
     const [showProducts, setShowProducts] = useState(false)
 
+    let content
+    if (showProducts) {
+      content = <ProductList categories={categories.results} products={products.results}/>
+    } else {
+      content = <Home/>
+    }
+
     return (
       <div className="Content">
-          <ImageSlider banners={banners.results} />
-          <ImageGrid categories={categories.results} />
-          <button onClick={() => setShowProducts(!showProducts)}>View all products</button>
-          {showProducts && <ProductList />}
-          {/* <Products products={products.results} /> */}
+        <button onClick={() => setShowProducts(!showProducts)}>View all products</button>
+        {content}
       </div>
     );
   }
-
 
 export default Content
