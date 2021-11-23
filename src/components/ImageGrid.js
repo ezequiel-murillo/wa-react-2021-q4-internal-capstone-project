@@ -17,7 +17,6 @@ const ImageGrid = ({categories}) => {
             <img src={category.data.main_image.url} alt={category.data.main_image.alt} style={imageStyle}/>
         </div>
     );
-
     return (
         <div>{listItems}</div>
     );
