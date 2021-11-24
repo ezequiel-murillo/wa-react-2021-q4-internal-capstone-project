@@ -39,7 +39,10 @@ const ProductList = ({categories, products}) => {
               />
             </LeftCol>
             <RightCol>
-              <Products products={products} filters={filters}/>
+              <Products 
+                products={products} 
+                filters={filters}
+              />
               <Pagination/>
             </RightCol>
         </Container>

@@ -13,8 +13,6 @@ const Products = ({products, filters}) => {
         height: '200px'
       };
 
-    console.log(`Product gets: ${filters}`)
-
     const listItems = products.map((product) => {
         if (!filters || filters.length === 0 || filters.includes(product.data.category.id)) {
             return (
@@ -25,11 +23,10 @@ const Products = ({products, filters}) => {
                     <p>${product.data.price}</p>
                 </div>
             )
-        } else { 
-            return null
         }
-        
-    });
+        return null
+        }
+    );
     return (
         <div className="grid" style={itemListStyle}>{listItems}</div>
     );

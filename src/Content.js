@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
 
 import banners from './data/featured-banners.json'
 import categories from './data/product-categories.json'
@@ -9,9 +10,21 @@ import ImageGrid from './components/ImageGrid'
 import Products from './components/Products'
 import ProductList from './components/ProductList'
 
-function Home() {
+const ShowButton = styled.span`
+  position: absolute;
+  background-color: #d8ab196c;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 2;
+  &:hover {
+    background-color: #9e801eb7;
+  }
+`
+
+function Home({setShowProducts}) {
   return (
     <React.Fragment>
+      <ShowButton onClick={setShowProducts}>View all products</ShowButton>
       <ImageSlider banners={banners.results} />
       <ImageGrid categories={categories.results} />
       <Products products={products.results} />
@@ -21,17 +34,20 @@ function Home() {
 
 function Content () {
     const [showProducts, setShowProducts] = useState(false)
+    const handleShowProducts = () => setShowProducts(!showProducts)
 
     let content
     if (showProducts) {
-      content = <ProductList categories={categories.results} products={products.results}/>
+      content = <ProductList 
+                  categories={categories.results} 
+                  products={products.results}
+                />
     } else {
-      content = <Home/>
+      content = <Home setShowProducts={handleShowProducts}/>
     }
 
     return (
       <div className="Content">
-        <button onClick={() => setShowProducts(!showProducts)}>View all products</button>
         {content}
       </div>
     );
