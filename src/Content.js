@@ -14,7 +14,7 @@ import ViewProductsButton from './components/ViewProductsButton'
 function Home({setShowProducts}) {
   return (
     <React.Fragment>
-      <ViewProductsButton/>
+      <ViewProductsButton setShowProducts={setShowProducts}/>
       <ImageSlider banners={banners.results} />
       <ImageGrid categories={categories.results} />
       <Products products={products.results} />
